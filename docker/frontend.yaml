@@ -1,0 +1,17 @@
+services:
+    frontend:
+        container_name: minimum_spanning_tree_javascript
+        build:
+            context: ../frontend
+            dockerfile: Dockerfile
+        ports:
+            - "5171:5173"
+        command: /bin/sh -c "pnpm run dev --host"
+        volumes:
+            - ../frontend:/frontend
+        networks:
+            - minimum_spanning_tree_network
+
+networks:
+    minimum_spanning_tree_network:
+        driver: bridge
